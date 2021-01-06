@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JsBridge Mechanism Review</title>
+</head>
+<body>
+<div>
+  <h3>JsBridge Mechanism Review</h3>
+  <p id="title"></p>
+  <button onclick="btnAction()">JS调用移动原生内容</button>
+</div>
+
+<script type="text/javascript">
+function btnAction() {
+  // mock a fake request, and let IOS native code intercept it
+  window.location.href = "jsbridge://hello_jsbridge";
+};
+
+// we mount a method to window object to let native code invoke it
+window.handleNativeValue = function(val) {
+  document.getElementById('title').innerText = val;
+};
+</script>
+</body>
+</html>
