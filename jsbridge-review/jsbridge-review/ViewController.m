@@ -23,7 +23,7 @@
     CGFloat height = self.view.frame.size.height;
     UIWebView *webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, width, height - 20)];
     
-    // [important]:
+    // [IMPORTANT]:
     // set webview delegate to self
     webview.delegate = self;
     
@@ -47,7 +47,7 @@
     if ([path hasPrefix:@"jsbridge://"]) { // this is dummy request
         NSLog(@"Intercepted request: %@", path);
         
-        // invoke webpage global js method, and handleNativeValue method is defined in html page
+        // invoke webpage javascript method from native code, this handleNativeValue method is defined in FE webpage
         [webView stringByEvaluatingJavaScriptFromString:@"handleNativeValue('message from native code')"];
         
         return NO;
