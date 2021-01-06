@@ -14,11 +14,11 @@
 
 <script type="text/javascript">
 function btnAction() {
-  // mock a fake request, and let IOS native code intercept it
+  // mock a request starting with 'jsbridge:// prefix', and let IOS native code intercept it
   window.location.href = "jsbridge://hello_jsbridge";
 };
 
-// we mount a method to window object to let native code invoke it
+// we mount a global method to window object to let native code invoke it
 window.handleNativeValue = function(val) {
   document.getElementById('title').innerText = val;
 };
