@@ -2,7 +2,7 @@
 A webview and IOS native code communication project
 
 ## JsBridge Mechanism Explained
-### Flow of FE javascript code invoke iOS native code
+### Flow of FE javascript code invokes iOS native code
 1. Initially, we need to contruct a mock request url from FE webview to let native code intercept it. The mock url looks like this, and then we send it native code:
 ```
 window.location.href = "jsbridge://hello_jsbridge";
@@ -52,7 +52,7 @@ Basically, the hello_jsbridge string could be a native method name
 ```
 3. Finally, we deal with jsbridge request, and then execute native method
 
-### Flow of iOS native code invoke FE javascript code
+### Flow of iOS native code invokes FE javascript code
 1. At the very first place, we define a method mounting to window object in webview
 ```
 window.handleNativeValue = function(val) {
