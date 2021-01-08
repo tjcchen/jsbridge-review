@@ -10,7 +10,7 @@ window.location.href = "jsbridge://hello_jsbridge";
 // Basically, the hello_jsbridge string could be a native method name
 ```
 2. Secondly, we make webview delegate to self object, and let current self ViewController implements UIWebViewDelegate's shouldStartLoadWithRequest method.
-```
+```swift
 @interface ViewController ()<UIWebViewDelegate>
 
 - (void)viewDidLoad {
@@ -60,7 +60,7 @@ window.handleNativeValue = function(val) {
 };
 ```
 2. Afterwards, we invoke `handleNativeValue` method from native code with `stringByEvaluatingJavaScriptFromString`
-```
+```swift
  [webView stringByEvaluatingJavaScriptFromString:@"handleNativeValue('message from native code')"];
 ```
 3. Finally, the message 'message from native code' is being successfully passed to FE webview
