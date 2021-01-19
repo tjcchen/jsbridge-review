@@ -1,5 +1,5 @@
 ## JsBridge-Review
-JsBridge is a communication method between JavaScript and Native Code. This technology is also known as Hybrid app. In JsBridge, Native calls JavaScript through a webview method `stringByEvaluatingJavaScriptFromString`. On the other hand, JavaScript calls Native by sending dummy request to Native, then Native intercepts the dummy request, analyze the request, and execute the corresponding method.
+JsBridge is a communication method between JavaScript and Native Code. This technology is also known as Hybrid app. In JsBridge, Native calls JavaScript through a webview method `stringByEvaluatingJavaScriptFromString`. On the other hand, JavaScript calls Native by sending dummy request to Native. Native then intercepts the dummy request, analyze the request, and execute the corresponding method.
 
 ## Mechanism Explained
 ### Flow of FE javascript code invokes iOS native code
