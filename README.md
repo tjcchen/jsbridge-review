@@ -1,7 +1,7 @@
 ## JsBridge-Review
-A webview and IOS native code communication project
+JsBridge is a communication method between JavaScript and Native Code. This technology is also known as Hybrid app. In JsBridge, Native calls JavaScript through a webview method `stringByEvaluatingJavaScriptFromString`. On the other hand, JavaScript calls Native by sending dummy request to Native, then Native intercepts the dummy request, analyze the request, and execute the corresponding method.
 
-## JsBridge Mechanism Explained
+## Mechanism Explained
 ### Flow of FE javascript code invokes iOS native code
 1. Initially, we need to contruct a mock request url from FE webview to let native code intercept it. The mock url looks like this, and then we send it native code:
 ```js
@@ -44,20 +44,20 @@ window.location.href = "jsbridge://hello_jsbridge";
   }
 }
 ```
-3. Finally, we deal with jsbridge request, and then execute native method
+3. Finally, we deal with jsbridge request, and then execute native method.
 
 ### Flow of iOS native code invokes FE javascript code
-1. At the very first place, we define a method mounting to window object in webview
+1. At the very first place, we define a method mounting to window object in webview.
 ```js
 window.handleNativeValue = function(val) {
   document.getElementById('title').innerText = val;
 };
 ```
-2. Afterwards, we invoke `handleNativeValue` method from native code with `stringByEvaluatingJavaScriptFromString`
+2. Afterwards, we invoke `handleNativeValue` method from native code with `stringByEvaluatingJavaScriptFromString`.
 ```swift
  [webView stringByEvaluatingJavaScriptFromString:@"handleNativeValue('message from native code')"];
 ```
-3. Finally, the message 'message from native code' is being successfully passed to FE webview
+3. Finally, the message 'message from native code' is being successfully passed to FE webview.
 
 ## License
 This project is licensed under terms MIT license.
